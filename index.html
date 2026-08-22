@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Time Machine — Improv Comedy</title>
+<meta name="description" content="Good Time Machine is a live improv comedy troupe. Check out our upcoming shows, meet the team, and get in touch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="#top" class="logo">Good Time Machine</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navMenu">
+      <a href="#about">About</a>
+      <a href="#shows">Shows</a>
+      <a href="#team">Team</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Live Improv Comedy</p>
+    <h1>GOOD TIME<br>MACHINE</h1>
+    <p class="hero-sub">Unscripted. Unhinged (in a good way). Unforgettable.</p>
+    <a href="#shows" class="btn">See Upcoming Shows</a>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p class="section-lead">
+    Good Time Machine is a live improv comedy troupe made up of seven performers who build entire scenes,
+    characters, and stories out of thin air — powered by nothing but audience suggestions and questionable
+    decision-making. Every show is different, every show is live, and every show is a good time.
+  </p>
+  <!-- TODO: Replace with your real about copy -->
+</section>
+
+<section id="shows" class="section alt">
+  <h2>Upcoming Shows</h2>
+  <ul class="shows-list">
+    <li class="show-card">
+      <div class="show-date">TBD</div>
+      <div class="show-info">
+        <h3>Show Title Here</h3>
+        <p>Venue Name — City, State</p>
+      </div>
+      <a href="#" class="btn btn-small">Tickets</a>
+    </li>
+    <li class="show-card">
+      <div class="show-date">TBD</div>
+      <div class="show-info">
+        <h3>Show Title Here</h3>
+        <p>Venue Name — City, State</p>
+      </div>
+      <a href="#" class="btn btn-small">Tickets</a>
+    </li>
+  </ul>
+  <p class="section-note"><!-- TODO: Replace with real show dates, venues, and ticket links --></p>
+</section>
+
+<section id="team" class="section">
+  <h2>Meet the Team</h2>
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">GM</div>
+      <h3>Gabi M.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Gabi here.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">AM</div>
+      <h3>Alex M.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Alex here.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">MS</div>
+      <h3>Mark S.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Mark S. here.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">MM</div>
+      <h3>Mark M.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Mark M. here.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">KB</div>
+      <h3>Katie B.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Katie here.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">RS</div>
+      <h3>Roxana S.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Roxana here.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo" aria-hidden="true">HH</div>
+      <h3>Hanna H.</h3>
+      <p class="team-bio">Placeholder bio — add a few fun lines about Hanna here.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="section alt">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <figure class="gallery-item">
+      <img src="images/poster.jpg" alt="Good Time Machine troupe poster" onerror="this.closest('.gallery-item').classList.add('img-missing')">
+      <figcaption>Troupe Poster</figcaption>
+    </figure>
+  </div>
+  <p class="section-note">Add your poster file as <code>images/poster.jpg</code> — see the README for instructions. Add more photos here as you get them.</p>
+</section>
+
+<section id="contact" class="section">
+  <h2>Get In Touch</h2>
+  <p class="section-lead">Want to book us for a show, corporate event, or private party? Reach out!</p>
+  <div class="contact-info">
+    <a href="mailto:hello@goodtimemachine.example" class="contact-link">hello@goodtimemachine.example</a>
+    <div class="social-links">
+      <a href="#" class="social-link">Instagram</a>
+      <a href="#" class="social-link">Facebook</a>
+      <a href="#" class="social-link">TikTok</a>
+    </div>
+  </div>
+  <p class="section-note"><!-- TODO: Replace email and social links above with real ones --></p>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Good Time Machine. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
