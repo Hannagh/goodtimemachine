@@ -237,6 +237,9 @@ nav#navMenu a:hover { color: var(--pink); }
   height: 90px;
   margin: 0 auto 14px;
   border-radius: 50%;
+}
+
+div.team-photo {
   background: linear-gradient(135deg, var(--pink), var(--yellow));
   display: flex;
   align-items: center;
@@ -244,6 +247,11 @@ nav#navMenu a:hover { color: var(--pink); }
   font-family: 'Bangers', cursive;
   font-size: 1.6rem;
   color: var(--white);
+}
+
+img.team-photo {
+  object-fit: cover;
+  display: block;
 }
 
 .team-card h3 {
