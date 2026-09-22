@@ -217,6 +217,23 @@ nav#navMenu a:hover { color: var(--pink); }
   font-size: 0.95rem;
 }
 
+.past-shows-heading {
+  font-size: 1.8rem;
+  color: var(--purple);
+  text-align: center;
+  margin: 50px 0 24px;
+}
+
+.show-card.is-past {
+  opacity: 0.55;
+  border-color: #999;
+  filter: grayscale(40%);
+}
+
+.show-card.is-past .show-date {
+  color: #777;
+}
+
 /* Team */
 .team-grid {
   display: grid;

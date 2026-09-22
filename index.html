@@ -49,8 +49,8 @@
 
 <section id="shows" class="section alt">
   <h2>Upcoming Shows</h2>
-  <ul class="shows-list">
-    <li class="show-card">
+  <ul class="shows-list" id="upcomingShowsList">
+    <li class="show-card" data-datetime="2026-09-11T21:00:00">
       <div class="show-date">SEP<br>11</div>
       <div class="show-info">
         <h3>Hear.Say Theater</h3>
@@ -58,7 +58,7 @@
       </div>
       <a href="https://www.crowdwork.com/e/club-mug" class="btn btn-small" target="_blank" rel="noopener">Get Tickets</a>
     </li>
-    <li class="show-card">
+    <li class="show-card" data-datetime="2026-09-19T19:00:00">
       <div class="show-date">SEP<br>19</div>
       <div class="show-info">
         <h3>Hear.Say Theater</h3>
@@ -66,7 +66,7 @@
       </div>
       <a href="https://www.crowdwork.com/e/saturday-night-improv-double-header" class="btn btn-small" target="_blank" rel="noopener">Get Tickets</a>
     </li>
-    <li class="show-card">
+    <li class="show-card" data-datetime="2026-09-21T19:30:00">
       <div class="show-date">SEP<br>21</div>
       <div class="show-info">
         <h3>Planet Ant</h3>
@@ -75,7 +75,10 @@
       <a href="https://www.crowdwork.com/e/improv-l-monday-night-improv-w-the-planet-ant-home-team?date=2026-09-21T19:30:00" class="btn btn-small" target="_blank" rel="noopener">Get Tickets</a>
     </li>
   </ul>
+  <p class="section-note" id="noUpcomingNote" hidden>No upcoming shows right now — check back soon!</p>
 
+  <h2 class="past-shows-heading" id="pastShowsHeading" hidden>Past Shows</h2>
+  <ul class="shows-list past-shows-list" id="pastShowsList"></ul>
 </section>
 
 <section id="team" class="section">
