@@ -363,6 +363,18 @@ img.team-photo {
   font-size: 0.85rem;
 }
 
+.site-footer p { margin: 0; }
+.site-footer p + p { margin-top: 8px; }
+
+.admin-link {
+  font-size: 0.75rem;
+  color: var(--white);
+  opacity: 0.5;
+  text-decoration: underline;
+}
+
+.admin-link:hover { opacity: 1; }
+
 /* Mobile */
 @media (max-width: 720px) {
   .nav-toggle { display: flex; }
