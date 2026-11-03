@@ -1,4 +1,4 @@
-const WORKER_URL = 'https://REPLACE-WITH-WORKER-URL';
+const WORKER_URL = 'https://good-time-machine-admin.hannaghoover.workers.dev/';
 const PASSWORD_KEY = 'gtmAdminPassword';
 
 const loginView = document.getElementById('loginView');
