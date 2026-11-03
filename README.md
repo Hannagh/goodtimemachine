@@ -4,22 +4,36 @@ Website for the Good Time Machine improv troupe. Plain HTML/CSS/JS — no build 
 
 ## Editing content
 
-- `index.html` — all page content (about, shows, team bios, contact info). Look for `TODO` comments and placeholder text.
+- `index.html` — page content (about, team bios, contact info).
+- `shows.json` — the list of shows. Edited through the admin page (below); the site sorts them into Upcoming and Past automatically.
 - `styles.css` — colors, fonts, layout.
-- `script.js` — mobile nav toggle + footer year.
-- `images/` — add your photos here:
-  - `images/poster.jpg` — the troupe poster, shown in the Gallery section.
-  - Add more images and `<figure>` blocks in the Gallery section of `index.html` as you get them.
+- `script.js` — mobile nav toggle, footer year, and rendering of the shows list.
+- `images/` — photos (poster, gallery, headshots).
 
-Team bios in the Team section are placeholders — replace the text inside each `.team-bio` paragraph. You can also swap the initials circles for real photos by replacing `.team-photo` divs with `<img>` tags.
+## Admin page (manage shows)
+
+`admin.html` lets password-holders add, edit, and delete shows (theater, date, time, ticket link). It is not linked from the site; the address is `https://hannagh.github.io/goodtimemachine/admin.html`.
+
+GitHub Pages can only serve static files, so saving goes through a small Cloudflare Worker (`worker/worker.js`). The Worker checks the password on the server, then commits the updated `shows.json` to this repo. The site updates 1–2 minutes after each save.
+
+### One-time setup
+
+1. **GitHub token.** GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Under "Repository access" choose **Only select repositories** → `goodtimemachine`. Under "Repository permissions" set **Contents** to **Read and write**. Generate it and copy it (it is only shown once). When the token expires the admin page stops saving; generate a new one and replace the `GITHUB_TOKEN` secret.
+2. **Cloudflare Worker.** Sign up free at dash.cloudflare.com → Workers & Pages → Create → Create Worker. Name it `good-time-machine-admin`, click Deploy, then **Edit code**, replace everything with the contents of `worker/worker.js`, and Deploy.
+3. **Secrets.** In the Worker → Settings → Variables and Secrets, add two entries of type **Secret**: `ADMIN_PASSWORD` (pick a long password, 14+ characters, since that is the only thing protecting the page) and `GITHUB_TOKEN` (the token from step 1). Deploy again.
+4. **Connect the page.** Copy the Worker's URL (`https://good-time-machine-admin.<your-subdomain>.workers.dev`) and set it as `WORKER_URL` at the top of `admin.js`.
+
+To change the password later, edit the `ADMIN_PASSWORD` secret in Cloudflare.
 
 ## Previewing locally
 
-Just open `index.html` in a browser, or run a local server:
+The shows list is loaded from `shows.json`, so opening `index.html` directly from disk won't show it. Run a local server instead:
 
 ```
-npx serve .
+python -m http.server 5173
 ```
+
+then visit `http://localhost:5173`.
 
 ## Publishing with GitHub Pages
 

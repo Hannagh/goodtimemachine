@@ -1,0 +1,141 @@
+.admin-back {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.admin-back:hover { color: var(--pink); }
+
+.admin-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.admin h1 {
+  font-size: 2.4rem;
+  color: var(--pink);
+  margin: 0 0 12px;
+}
+
+.admin h2 {
+  font-size: 1.6rem;
+  color: var(--purple);
+  margin: 36px 0 14px;
+}
+
+.admin-card {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff0f6;
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+
+.field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.field span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--purple);
+}
+
+.admin input[type="text"],
+.admin input[type="password"],
+.admin input[type="url"],
+.admin input[type="date"],
+.admin input[type="time"] {
+  width: 100%;
+  font: inherit;
+  padding: 10px 12px;
+  border: 2px solid var(--purple);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+}
+
+.admin input:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 1px;
+}
+
+.admin input.invalid { border-color: #d6204a; background: #fff3f5; }
+
+.admin button.btn { border: none; cursor: pointer; font: inherit; font-weight: 700; }
+.admin button.btn-small { font-size: 0.9rem; }
+
+.btn-save { background: var(--purple); }
+
+.editor-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.editor-actions {
+  position: sticky;
+  top: 58px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  padding: 12px 0;
+}
+
+.admin-message { font-size: 0.9rem; font-weight: 600; color: var(--purple); }
+.admin-message.error { color: #d6204a; margin-top: 12px; }
+.admin-message.success { color: #1b7a3d; }
+
+.rows { display: flex; flex-direction: column; gap: 14px; }
+
+.show-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr 2.4fr auto;
+  gap: 12px;
+  align-items: end;
+  background: #fff0f6;
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.show-row .field { margin-bottom: 0; }
+
+.delete-button {
+  background: none;
+  border: 2px solid #d6204a;
+  color: #d6204a;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-button:hover { background: #d6204a; color: #fff; }
+
+.empty-note { color: #777; font-size: 0.95rem; }
+
+@media (max-width: 820px) {
+  .show-row { grid-template-columns: 1fr 1fr; }
+  .show-row .field-venue,
+  .show-row .field-ticket { grid-column: 1 / -1; }
+  .delete-button { grid-column: 1 / -1; }
+}

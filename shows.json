@@ -1,0 +1,29 @@
+{
+  "shows": [
+    {
+      "venue": "Hear.Say Theater",
+      "datetime": "2026-09-11T21:00",
+      "ticketUrl": "https://www.crowdwork.com/e/club-mug"
+    },
+    {
+      "venue": "Hear.Say Theater",
+      "datetime": "2026-09-19T19:00",
+      "ticketUrl": "https://www.crowdwork.com/e/saturday-night-improv-double-header"
+    },
+    {
+      "venue": "Planet Ant",
+      "datetime": "2026-09-21T19:30",
+      "ticketUrl": "https://www.crowdwork.com/e/improv-l-monday-night-improv-w-the-planet-ant-home-team?date=2026-09-21T19:30:00"
+    },
+    {
+      "venue": "Hear.Say Theater",
+      "datetime": "2026-10-24T19:00",
+      "ticketUrl": "https://www.crowdwork.com/e/saturday-night-improv-double-header?date=2026-10-24T19:00:00"
+    },
+    {
+      "venue": "Hear.Say Theater",
+      "datetime": "2026-11-28T19:00",
+      "ticketUrl": ""
+    }
+  ]
+}

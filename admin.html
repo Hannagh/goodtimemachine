@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Manage Shows — Good Time Machine</title>
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">Good Time Machine</a>
+    <a href="index.html" class="admin-back">&larr; Back to site</a>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <section id="loginView" class="admin-card">
+    <h1>Manage Shows</h1>
+    <p>Enter the password to add or edit shows.</p>
+    <form id="loginForm">
+      <label class="field">
+        <span>Password</span>
+        <input type="password" id="passwordInput" autocomplete="current-password" required>
+      </label>
+      <button type="submit" class="btn" id="loginButton">Log in</button>
+      <p class="admin-message error" id="loginMessage" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section id="editorView" hidden>
+    <div class="editor-header">
+      <h1>Manage Shows</h1>
+      <button type="button" class="link-button" id="logoutButton">Log out</button>
+    </div>
+
+    <div class="editor-actions">
+      <button type="button" class="btn btn-small" id="addButton">+ Add show</button>
+      <button type="button" class="btn btn-small btn-save" id="saveButton">Save changes</button>
+      <span class="admin-message" id="statusMessage" role="status"></span>
+    </div>
+
+    <h2>Upcoming</h2>
+    <div id="upcomingRows" class="rows"></div>
+    <p class="empty-note" id="upcomingEmpty" hidden>No upcoming shows. Click "+ Add show" to add one.</p>
+
+    <h2>Past</h2>
+    <div id="pastRows" class="rows"></div>
+    <p class="empty-note" id="pastEmpty" hidden>No past shows.</p>
+
+    <datalist id="venueOptions"></datalist>
+  </section>
+
+</main>
+
+<script src="admin.js"></script>
+</body>
+</html>
