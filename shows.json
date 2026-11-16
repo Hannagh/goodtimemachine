@@ -22,6 +22,11 @@
     },
     {
       "venue": "Hear.Say Theater",
+      "datetime": "2026-11-25T20:30",
+      "ticketUrl": "https://www.crowdwork.com/e/thankfully-triple-header-improv-show?date=2026-11-25T20:00:00&_gl=1*1mik8yz*_gcl_au*MTg4NDUzODM2OS4xNzkwOTQ4ODA0*_ga*MjA5NTMzMTg5My4xNzY1NDgwNDU3*_ga_KT30XW4HQE*czE3OTQ4NDQzNDUkbzUxJGcxJHQxNzk0ODQ0MzQ4JGo1NyRsMCRoMA.."
+    },
+    {
+      "venue": "Hear.Say Theater",
       "datetime": "2026-11-28T19:00",
       "ticketUrl": "https://www.crowdwork.com/e/saturday-night-improv-double-header?date=2026-11-28T19:00:00&_gl=1*esepij*_gcl_au*MTg4NDUzODM2OS4xNzkwOTQ4ODA0*_ga*MjA5NTMzMTg5My4xNzY1NDgwNDU3*_ga_KT30XW4HQE*czE3OTM3MTI5MTIkbzQ5JGcxJHQxNzkzNzEyOTE5JGo1MyRsMCRoMA.."
     }
