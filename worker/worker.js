@@ -1,23 +1,30 @@
 // Cloudflare Worker: password-protected API for editing shows.json in the GitHub repo.
 // Secrets (set in the Cloudflare dashboard, never in this file): ADMIN_PASSWORD, GITHUB_TOKEN
 
-const ALLOWED_ORIGIN = 'https://hannagh.github.io';
+const ALLOWED_ORIGINS = [
+  'https://good-time-machine.com',
+  'https://www.good-time-machine.com',
+  'https://hannagh.github.io',
+];
 const REPO = 'Hannagh/goodtimemachine';
 const FILE_PATH = 'shows.json';
 const BRANCH = 'main';
 const MAX_SHOWS = 200;
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
-  'Access-Control-Allow-Headers': 'Authorization, Content-Type',
-  'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
-  'Vary': 'Origin',
-};
+function corsHeaders(request) {
+  const origin = request.headers.get('Origin');
+  return {
+    'Access-Control-Allow-Origin': ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
+    'Access-Control-Allow-Headers': 'Authorization, Content-Type',
+    'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
+    'Vary': 'Origin',
+  };
+}
 
-function json(body, status = 200) {
+function json(body, status, request) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+    headers: { ...corsHeaders(request), 'Content-Type': 'application/json' },
   });
 }
 
@@ -95,29 +102,31 @@ function validateShows(input) {
 
 export default {
   async fetch(request, env) {
+    const reply = (body, status = 200) => json(body, status, request);
+
     if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: CORS_HEADERS });
+      return new Response(null, { status: 204, headers: corsHeaders(request) });
     }
 
     const authHeader = request.headers.get('Authorization') || '';
     const provided = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : '';
     if (!(await passwordMatches(provided, env.ADMIN_PASSWORD))) {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      return json({ error: 'Incorrect password.' }, 401);
+      return reply({ error: 'Incorrect password.' }, 401);
     }
 
     try {
       if (request.method === 'GET') {
         const { data } = await readShowsFile(env);
-        return json({ shows: data.shows });
+        return reply({ shows: data.shows });
       }
 
       if (request.method === 'PUT') {
         let body;
-        try { body = await request.json(); } catch (e) { return json({ error: 'Invalid request.' }, 400); }
+        try { body = await request.json(); } catch (e) { return reply({ error: 'Invalid request.' }, 400); }
 
         const result = validateShows(body);
-        if (result.error) return json({ error: result.error }, 400);
+        if (result.error) return reply({ error: result.error }, 400);
 
         const { sha } = await readShowsFile(env);
         const content = JSON.stringify({ shows: result.shows }, null, 2) + '\n';
@@ -132,14 +141,14 @@ export default {
             branch: BRANCH,
           }),
         });
-        if (!response.ok) return json({ error: 'GitHub save failed (' + response.status + ').' }, 502);
+        if (!response.ok) return reply({ error: 'GitHub save failed (' + response.status + ').' }, 502);
 
-        return json({ shows: result.shows });
+        return reply({ shows: result.shows });
       }
 
-      return json({ error: 'Method not allowed.' }, 405);
+      return reply({ error: 'Method not allowed.' }, 405);
     } catch (e) {
-      return json({ error: 'Server error: ' + e.message }, 500);
+      return reply({ error: 'Server error: ' + e.message }, 500);
     }
   },
 };

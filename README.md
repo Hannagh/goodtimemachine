@@ -12,7 +12,7 @@ Website for the Good Time Machine improv troupe. Plain HTML/CSS/JS — no build 
 
 ## Admin page (manage shows)
 
-`admin.html` lets password-holders add, edit, and delete shows (theater, date, time, ticket link). It is not linked from the site; the address is `https://hannagh.github.io/goodtimemachine/admin.html`.
+`admin.html` lets password-holders add, edit, and delete shows (theater, date, time, ticket link). It is reachable through the small "Admin login" link in the site footer, or directly at `https://good-time-machine.com/admin.html`.
 
 GitHub Pages can only serve static files, so saving goes through a small Cloudflare Worker (`worker/worker.js`). The Worker checks the password on the server, then commits the updated `shows.json` to this repo. The site updates 1–2 minutes after each save.
 
@@ -44,3 +44,7 @@ This repo is set up for `https://github.com/Hannagh/goodtimemachine`.
 3. Under "Build and deployment", set **Source** to "Deploy from a branch".
 4. Set **Branch** to `main` and folder to `/ (root)`, then **Save**.
 5. Your site will be published at `https://hannagh.github.io/goodtimemachine/` within a minute or two.
+
+### Custom domain
+
+The site's domain is `good-time-machine.com`, registered with Cloudflare. In Cloudflare DNS it has four `A` records for `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and a `CNAME` for `www` pointing to `hannagh.github.io`, all set to **DNS only**. The domain is also set under GitHub **Settings → Pages → Custom domain** (which creates the `CNAME` file in this repo; don't delete it). If the domain ever changes, update `ALLOWED_ORIGINS` in `worker/worker.js` and redeploy the Worker, or the admin page will stop saving.
